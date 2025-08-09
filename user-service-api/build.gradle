@@ -10,7 +10,9 @@ group = 'br.com.dev'
 version = '1.0.0'
 
 java {
-    sourceCompatibility = '17'
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(17)
+    }
 }
 
 tasks.named('test') {
