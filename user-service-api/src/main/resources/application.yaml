@@ -8,3 +8,10 @@ spring:
 
 server:
   port: ${SERVER_PORT}
+
+springdoc:
+  openapi:
+    info:
+      title: User Service API
+      version: 1.0.0
+      description: User Service API

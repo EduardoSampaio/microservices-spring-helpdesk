@@ -17,13 +17,12 @@ public class ControllerExceptionHandler {
     @ExceptionHandler(ResourceNotFoundException.class)
     public ResponseEntity<StandardError> handleResourceNotFoundException(final ResourceNotFoundException ex, final HttpServletRequest request) {
 
-        return ResponseEntity.status(NOT_FOUND).body(
-                StandardError.builder()
-                        .timestamp(LocalDateTime.now())
-                        .status(NOT_FOUND.value())
-                        .error(NOT_FOUND.getReasonPhrase())
-                        .message(ex.getMessage())
-                        .path(request.getRequestURI())
-                        .build());
+        var error = new StandardError(
+                NOT_FOUND.value(),
+                NOT_FOUND.getReasonPhrase(),
+                request.getRequestURI(),
+                ex.getMessage(),
+                LocalDateTime.now());
+        return ResponseEntity.status(NOT_FOUND).body(error);
     }
 }
