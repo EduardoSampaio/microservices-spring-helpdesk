@@ -4,11 +4,11 @@ package br.com.dev.userserviceapi.controller.impl;
 import br.com.dev.userserviceapi.controller.UserController;
 import br.com.dev.userserviceapi.service.UserService;
 import lombok.RequiredArgsConstructor;
+import models.requests.CreateUserRequest;
 import models.responses.UserResponse;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.List;
 
 import static org.springframework.http.HttpStatus.CREATED;
 
@@ -23,19 +23,9 @@ public class UserControllerImpl implements UserController {
         return ResponseEntity.ok().body(userService.findById(id));
     }
 
-//    @Override
-//    public ResponseEntity<Void> save(final CreateUserRequest createUserRequest) {
-//        userService.save(createUserRequest);
-//        return ResponseEntity.status(CREATED.value()).build();
-//    }
-//
-//    @Override
-//    public ResponseEntity<List<UserResponse>> findAll() {
-//        return ResponseEntity.ok().body(userService.findAll());
-//    }
-//
-//    @Override
-//    public ResponseEntity<UserResponse> update(final String id, final UpdateUserRequest updateUserRequest) {
-//        return ResponseEntity.ok().body(userService.update(id, updateUserRequest));
-//    }
+    @Override
+    public ResponseEntity<Void> save(final CreateUserRequest createUserRequest) {
+        userService.save(createUserRequest);
+        return ResponseEntity.status(CREATED.value()).build();
+    }
 }
