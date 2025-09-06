@@ -5,7 +5,6 @@ import models.requests.CreateUserRequest;
 import models.responses.UserResponse;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
-import org.mapstruct.MappingTarget;
 
 import static org.mapstruct.NullValuePropertyMappingStrategy.IGNORE;
 
